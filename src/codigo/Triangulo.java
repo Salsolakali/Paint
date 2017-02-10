@@ -54,7 +54,7 @@ public class Triangulo extends Polygon {
         //Puntos X donde dibujare los vertices inferiores del triangulo
         this.xpoints[1] = this.xpoints[0] + mediaBase;
         this.xpoints[2] = this.xpoints[0] - mediaBase;
-        
+       
         g2.setColor(color);
         if (relleno){
             g2.fill(this);
