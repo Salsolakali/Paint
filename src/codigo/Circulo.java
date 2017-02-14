@@ -13,36 +13,9 @@ import java.awt.geom.Ellipse2D;
  *
  * @author Albertaco
  */
-public class Circulo extends Ellipse2D.Double{
-    
-    //Variales de color y relleno del circulo
-    Color color = null;
-    Boolean relleno = false;
-    
-    //Constructor del circulo. Los parametros que se pasan al constructor suelen llevar _ para saber que son de la propiedad
-    public Circulo(int _posX, int _posY, int _radio, Color _color, boolean _relleno){
-        //Aunque es un constructor, no lleva el super porque esta invocando al constructor de la clase que estas heredando. Lo puedo poner, pero es opcional.
-        //Como está implicito en el constructor, no hace falta que ponga el super (es un constructor vacio)
-        //super();
-        this.x = _posX;
-        this.y = _posY;
-        this.width = _radio;
-        this.height = _radio;
-        this.color = _color;
-        this.relleno = _relleno;
-    }
-    
-    public void Dibujate(Graphics2D g2, int posX){
-        //Calculo el radio entre el click y el final del dragged. Lo hago en valor absoluto para que no salga negativo
-        int radio = Math.abs((int) this.x - posX);
-        this.width = radio;
-        this.height = radio;
-        g2.setColor(color);
-        if (relleno){
-            g2.fill(this);
-        }
-        else{
-            g2.draw(this);
-        }
-    }
-}
+    public class Circulo extends Forma{
+        public Circulo(int _posX, int _posY,Color _color, boolean _relleno){
+        super(_posX, _posY, new int[500], new int[500], _color, _relleno, 4);
+   }
+  }
+

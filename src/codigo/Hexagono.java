@@ -15,7 +15,7 @@ import java.awt.Polygon;
  */
 public class Hexagono extends Forma {
        
-    public Hexagono (int _posX, int _posY, int [] _puntosX, int [] _puntosY, Color _color, boolean _relleno){
-        super(_posX, _posY, _puntosX, _puntosY, _color, _relleno, 6);
+    public Hexagono (int _posX, int _posY, Color _color, boolean _relleno){
+        super(_posX, _posY, new int [6], new int [6], _color, _relleno, 6);
     }  
 }
