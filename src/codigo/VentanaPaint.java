@@ -32,13 +32,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     Color colorSeleccionado = Color.BLACK;
     
     int formaSeleccionada = 0;
-    
-    //Creo la forma que usare 
-//    Circulo miCirculo;
-//    Cuadrado miCuadrado;
-//    Triangulo miTriangulo;
-//    Pentagono miPentagono;
-//    Hexagono miHexagono;
+
     Forma miForma;
     Ellipse2D.Double miLapiz;
     
@@ -115,6 +109,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -237,7 +232,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         );
         lienzoLayout.setVerticalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
 
         jButton1.setText("Color");
@@ -272,7 +267,7 @@ public class VentanaPaint extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Triangulo");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/trianguloERelleno.png"))); // NOI18N
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton6MousePressed(evt);
@@ -307,10 +302,22 @@ public class VentanaPaint extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setText("Lapiz");
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/lapiz.png"))); // NOI18N
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton11MousePressed(evt);
+            }
+        });
+
+        jButton12.setText("Poligono regular");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton12MousePressed(evt);
+            }
+        });
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
             }
         });
 
@@ -352,22 +359,24 @@ public class VentanaPaint extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
                 .addComponent(jButton9)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7)
-                .addGap(34, 34, 34)
-                .addComponent(jButton11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,19 +387,24 @@ public class VentanaPaint extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE))
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(49, 49, 49)
+                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -522,13 +536,13 @@ public class VentanaPaint extends javax.swing.JFrame {
     private void lienzoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseReleased
       
         if(numLados ==1){
-            //miLapiz = new Ellipse2D.Double(evt.getX(), evt.getY(), 10, 10);
+            
             Graphics2D g2 = (Graphics2D) buffer2.getGraphics();
             
             
             //Esta linea es la puta clave
             g2.drawImage(buffer, 0,0, null);
-            g2.fill(miLapiz);
+            
             repaint(0,0,1,1);
         }
         else{
@@ -566,11 +580,11 @@ public class VentanaPaint extends javax.swing.JFrame {
         //Apunto al objeto sobre el que ira el dibujo
         switch(numLados){
             case 1: 
-                miLapiz = new Ellipse2D.Double(evt.getX(), evt.getY(), 10, 10);
-                Graphics2D g2 = (Graphics2D) buffer.getGraphics();
-                g2.fill(miLapiz);
-                //repaint(0,0,1,1);
-                ;break;
+//                miLapiz = new Ellipse2D.Double(evt.getX(), evt.getY(), 10, 10);
+//                Graphics2D g2 = (Graphics2D) buffer.getGraphics();
+//                g2.fill(miLapiz);
+//                //repaint(0,0,1,1);
+                break;
             case 3: miForma = new Triangulo(evt.getX(), evt.getY(), colorSeleccionado, true);break;
             case 4: miForma = new Cuadrado (evt.getX(), evt.getY(), colorSeleccionado, true);break;
             case 5: miForma = new Pentagono(evt.getX(), evt.getY(), colorSeleccionado, true);break;
@@ -605,11 +619,13 @@ public class VentanaPaint extends javax.swing.JFrame {
     private void lienzoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseDragged
         
         if(numLados == 1){
-            lienzoGraphics.drawImage(buffer, 0, 0, null);
+           // lienzoGraphics.drawImage(buffer, 0, 0, null);
+                       
+            //Creo el lapiz
+            miLapiz = new Lapiz(evt.getX(), evt.getY(), 10, colorSeleccionado, true);
             
-            
-            miLapiz = new Ellipse2D.Double(evt.getX(), evt.getY(), 10, 10);
             Graphics2D g2 = (Graphics2D) buffer.getGraphics();
+            g2.setColor(colorSeleccionado);
             g2.fill(miLapiz);
             
             
@@ -617,8 +633,9 @@ public class VentanaPaint extends javax.swing.JFrame {
             repaint(0,0,1,1);
         }
         else{
-            ;
+        //Borro lo que hubiera en el buffer 1
         bufferGraphics.drawImage(buffer2, 0,0, null);
+        
         miForma.Dibujate(bufferGraphics, evt.getX(), evt.getY());
         //Apunto al lienzo y lo paso al J Panel
         lienzoGraphics.drawImage(buffer, 0, 0, null);
@@ -662,6 +679,14 @@ public class VentanaPaint extends javax.swing.JFrame {
         numLados = 1; //lapiz
     }//GEN-LAST:event_jButton11MousePressed
 
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        //Poligono regular
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -702,6 +727,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
